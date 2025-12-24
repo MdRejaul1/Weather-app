@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 body {
@@ -27,7 +27,6 @@ body {
 
 .search input {
   border: none;
-  outline: none;
   background: #ebfffc;
   color: #555;
   padding: 10px 25px;
@@ -39,12 +38,17 @@ body {
 }
 .search button {
   border: 0;
-  outline: 0;
   background: #ebfffc;
   border-radius: 50%;
   width: 60px;
   height: 60px;
   cursor: pointer;
+}
+input:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 254, 186, 0.6);
+  background: #eafff9;
 }
 
 .search button img {
@@ -88,37 +92,37 @@ body {
 }
 .weather {
   display: none;
-} 
+}
 .error {
   text-align: left;
   margin-left: 10px;
   font-size: 14px;
   display: none;
+  margin-top: 5px;
 }
-  
+
 .suggestions {
   list-style: none;
-  background: #ffffff;     
-  color: #333;              
+  background: #ffffff;
+  color: #333;
   margin-top: 5px;
   padding: 0;
   max-height: 150px;
   overflow-y: auto;
-  border: 1px solid #ccc;  
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: none;           
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: none;
   font-family: Arial, sans-serif;
-   text-align: left;
-   border-radius: 20px;
+  text-align: left;
+  border-radius: 20px;
 }
 
 .suggestions li {
-  padding: 10px 12px;       
+  padding: 10px 12px;
   cursor: pointer;
-  transition: background 0.2s ease; 
+  transition: background 0.2s ease;
 }
 
 .suggestions li:hover {
-  background: #007BFF;      
-  color: #fff;            
+  background: #007bff;
+  color: #fff;
 }
