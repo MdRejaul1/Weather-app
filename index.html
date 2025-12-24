@@ -9,7 +9,7 @@
 <body>
 <div class="card">
   <div class="search">
-    <input type="text" placeholder="Enter city name" spellcheck="false">
+    <input type="text" placeholder="Enter city name" spellcheck="false"/>
     <button>
       <img src="images/search.png" alt="Search">
     </button>
@@ -109,7 +109,6 @@
       data.forEach(place => {
         const li = document.createElement("li");
         li.innerText = place.name + ", " + place.country;
-
         // Append to suggestions box
         suggestionsBox.appendChild(li);
         suggestionsBox.style.display = "block";
@@ -118,7 +117,7 @@
           searchBox.value = place.name;
           suggestionsBox.innerHTML = "";
            suggestionsBox.style.display = "none"; 
-          checkWeather(place.name);
+          checkWeather(place.name + "," + place.country);
         });
       });
     }
@@ -138,6 +137,9 @@
     searchBox.addEventListener("input", () => {
       getSuggestions(searchBox.value);
     });
+    
+   document.querySelector(".search input").focus();
+
   </script>
 </div>
 </body>
