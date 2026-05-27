@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -91,53 +91,10 @@
           }
         }
 
-        // Fetch city suggestions from Geo API
-        async function getSuggestions(query) {
-          if (!query) {
-            suggestionsBox.innerHTML = "";
-            return;
-          }
-
-          const response = await fetch(
-            geoApiUrl + query + "&limit=5&appid=" + apiKey
-          );
-
-          const data = await response.json();
-          suggestionsBox.innerHTML = "";
-
-          data.forEach((place) => {
-            const li = document.createElement("li");
-            li.innerText = place.name + ", " + place.country;
-            // Append to suggestions box
-            suggestionsBox.appendChild(li);
-            suggestionsBox.style.display = "block";
-            // Click event to set input value and fetch weather
-            li.addEventListener("click", () => {
-              searchBox.value = place.name;
-              suggestionsBox.innerHTML = "";
-              suggestionsBox.style.display = "none";
-              checkWeather(place.name + "," + place.country);
-            });
-          });
-        }
-
         // Event listeners for button click and enter key
         searchBtn.addEventListener("click", () => {
           checkWeather(searchBox.value);
         });
-
-        searchBox.addEventListener("keydown", function (event) {
-          if (event.key === "Enter") {
-            checkWeather(searchBox.value);
-          }
-        });
-
-        // Event listener to fetch suggestions on typing
-        searchBox.addEventListener("input", () => {
-          getSuggestions(searchBox.value);
-        });
-
-        document.querySelector(".search input").focus();
       </script>
     </div>
   </body>
